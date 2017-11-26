@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "WG Whitelist Address",
+    "slug": "wg-whitelist-address",
+    "sdkVersion": "23.0.0",
+    "orientation": "portrait",
+    "version": "1.0.0",
+    "ios": {
+      "buildNumber": 1,
+      "bundleIdentifier": "com.worldgoldinvestmentsg.ios.wgwhitelist"
+    },
+    "android": {
+      "package": "com.worldgoldinvestmentsg.android.wgwhitelist"
+    }
+  }
+}
