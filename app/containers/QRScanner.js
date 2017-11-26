@@ -34,7 +34,7 @@ export default class QRScanner extends Component {
                 this.setState({result: errors.ERROR_NO_EROR});
             } else {
                 this.setState({result: errors.ERROR_VALIDATION_FAILED});
-                emailTo(['tiendv.52@gmail.com'], [], [], 'Wrong WG address: ' + data, 'Wrong WG address: ' + data);
+                emailTo(['support@worldgoldcoin.org'], [], [], 'Wrong WG address: ' + data, 'Wrong WG address: ' + data);
             }
         } else {
             this.setState({result: errors.ERROR_EMPTY_STRING});

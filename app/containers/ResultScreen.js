@@ -28,7 +28,7 @@ export default class ResultScreen extends Component {
             <TouchableOpacity
                 style={{
                     width: Dimensions.get('window').width * 0.8,
-                    marginTop: 4    0,
+                    marginTop: 40,
                     height: scale(44),
                     borderRadius: 5,
                     borderWidth: StyleSheet.hairlineWidth,

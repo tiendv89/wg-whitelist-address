@@ -4,6 +4,7 @@
     "slug": "wg-whitelist-address",
     "sdkVersion": "23.0.0",
     "orientation": "portrait",
+    "icon": "./icon.png",
     "version": "1.0.0",
     "ios": {
       "buildNumber": 1,
