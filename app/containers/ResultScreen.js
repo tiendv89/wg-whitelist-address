@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import {Constants} from 'expo';
 import {Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
-import {scale} from "../utils";
+import {scale, version} from "../utils";
 import * as errors from "../errors";
 
 export default class ResultScreen extends Component {
@@ -39,7 +39,7 @@ export default class ResultScreen extends Component {
                     ...Platform.select({
                         ios: {
                             shadowColor: 'rgba(0,0,0, .4)',
-                            shadowOffset: { height: 1, width: 1 },
+                            shadowOffset: {height: 1, width: 1},
                             shadowOpacity: 1,
                             shadowRadius: 1,
                         },
@@ -61,22 +61,32 @@ export default class ResultScreen extends Component {
     render() {
         if (this.props.result === errors.ERROR_NO_EROR) {
             return (
-                <View style={{flex: 1, alignItems: 'center', paddingTop: 50}}>
-                    <Ionicons name="ios-checkmark-circle" size={scale(300)} color="#4cd964"/>
-                    <Text style={{fontSize: scale(24)}}>
-                        Xác minh thành công
+                <View style={{alignItems: 'center'}}>
+                    <View style={{flex: 1, alignItems: 'center', paddingTop: 50}}>
+                        <Ionicons name="ios-checkmark-circle" size={scale(300)} color="#4cd964"/>
+                        <Text style={{fontSize: scale(24)}}>
+                            Xác minh thành công
+                        </Text>
+                        {this.renderBackButton()}
+                    </View>
+                    <Text>
+                        {version}
                     </Text>
-                    {this.renderBackButton()}
                 </View>
             )
         } else {
             return (
-                <View style={{flex: 1, alignItems: 'center', paddingTop: 50}}>
-                    <Ionicons name="ios-close-circle" size={scale(300)} color="#ff3b30"/>
-                    <Text style={{fontSize: scale(24)}}>
-                        Xác minh thất bại
+                <View style={{alignItems: 'center'}}>
+                    <View style={{flex: 1, alignItems: 'center', paddingTop: 50}}>
+                        <Ionicons name="ios-close-circle" size={scale(300)} color="#ff3b30"/>
+                        <Text style={{fontSize: scale(24)}}>
+                            Xác minh thất bại
+                        </Text>
+                        {this.renderBackButton()}
+                    </View>
+                    <Text>
+                        {version}
                     </Text>
-                    {this.renderBackButton()}
                 </View>
             )
         }

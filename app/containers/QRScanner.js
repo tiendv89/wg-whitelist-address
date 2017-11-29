@@ -4,7 +4,7 @@ import {BarCodeScanner, Permissions} from 'expo';
 import ResultScreen from './ResultScreen';
 import * as errors from '../errors';
 import validation_str from '../validation_str';
-import {emailTo} from "../utils";
+import {emailTo, scale, version} from "../utils";
 
 export default class QRScanner extends Component {
     constructor(props) {
@@ -54,16 +54,30 @@ export default class QRScanner extends Component {
                     this.state.hasCameraPermission === false ?
                         <Text>Camera permission is not granted</Text> :
                         this.state.result === errors.ERROR_UNDEFINED ?
-                            <BarCodeScanner
-                                onBarCodeRead={this._handleBarCodeRead}
-                                style={{width: this.state.width, height: this.state.height}}
-                            />
+                            <View style={{alignSelf: 'stretch'}}>
+                                <View style={{height: scale(64), backgroundColor: '#004A7C', paddingLeft: scale(24)}}>
+                                    <Text
+                                        style={{
+                                            padding: scale(8),
+                                            color: 'white',
+                                            marginTop: 20,
+                                            fontSize: scale(17),
+                                            height: scale(44)
+                                        }}>
+                                            {version}
+                                        </Text>
+                                </View>
+                                <BarCodeScanner
+                                    onBarCodeRead={this._handleBarCodeRead}
+                                    style={{width: this.state.width, height: this.state.height - scale(64)}}
+                                />
+                            </View>
                             :
                             <ResultScreen
                                 result={this.state.result}
                                 backToQR={() => this.setState({result: errors.ERROR_UNDEFINED})}
                             />
-                      }
+                }
             </View>
         )
     }
@@ -73,7 +87,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         backgroundColor: '#ecf0f1',
     }
 });

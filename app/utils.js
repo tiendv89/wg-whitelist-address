@@ -2,6 +2,8 @@ import {Linking, Dimensions, Platform, PixelRatio} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
+const version = 'v1.0.0-1-20171129';
+
 //Guideline sizes are based on standard ~5" screen mobile device
 const guidelineBaseWidth = 350;
 const guidelineBaseHeight = 680;
@@ -117,4 +119,4 @@ const emailTo = function (to, cc, bcc, subject, body) {
     LaunchURL(url);
 };
 
-export {scale, verticalScale, moderateScale, emailTo};
+export {scale, verticalScale, moderateScale, emailTo, version};
